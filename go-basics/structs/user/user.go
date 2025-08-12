@@ -18,11 +18,30 @@ func New(firstName, lastName, birthDate string) (*User, error) {
 	}, nil
 }
 
+func NewAdmin(email, password string) Admin {
+	return Admin{
+		email:    email,
+		password: password,
+		User: User{
+			firstName: "Admin",
+			lastName:  "Admin",
+			birthDate: "---",
+			createdAt: time.Now(),
+		},
+	}
+}
+
 type User struct {
 	firstName string
 	lastName  string
 	birthDate string
 	createdAt time.Time
+}
+
+type Admin struct {
+	email    string
+	password string
+	User     User
 }
 
 func (u User) OutputUserDetails() {

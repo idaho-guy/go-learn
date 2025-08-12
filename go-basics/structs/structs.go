@@ -18,6 +18,9 @@ func main() {
 		panic(err)
 	}
 
+	adminUser := user.NewAdmin("x@gmail.com", "pass")
+	adminUser.User.OutputUserDetails()
+
 	// ... do something awesome with that gathered data!
 	appUser.OutputUserDetails()
 	appUser.ClearUserName()
