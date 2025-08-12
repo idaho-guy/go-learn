@@ -17,6 +17,12 @@ func (u User) outputUserDetails() {
 	fmt.Println(u.firstName, u.lastName, u.birthDate)
 }
 
+func (u *User) clearUserName() {
+	// don't need to de-reference for structs, sugar supplied by go
+	u.firstName = ""
+	u.lastName = ""
+}
+
 func main() {
 
 	fn := getUserData("Please enter your first name: ")
@@ -32,8 +38,9 @@ func main() {
 
 	// ... do something awesome with that gathered data!
 	appUser.outputUserDetails()
+	appUser.clearUserName()
+	appUser.outputUserDetails()
 
-	fmt.Println(appUser.firstName, appUser.lastName, appUser.birthDate)
 }
 
 func getUserData(promptText string) string {
