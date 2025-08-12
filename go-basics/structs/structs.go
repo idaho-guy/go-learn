@@ -26,12 +26,13 @@ func main() {
 	}
 
 	// ... do something awesome with that gathered data!
-	outputUserDetails(appUser)
+	outputUserDetails(&appUser)
 
 	fmt.Println(appUser.firstName, appUser.lastName, appUser.birthDate)
 }
 
-func outputUserDetails(user User) {
+func outputUserDetails(user *User) {
+	// don't need to de-reference for structs, sugar supplied by go
 	fmt.Println(user.firstName, user.lastName, user.birthDate)
 }
 
