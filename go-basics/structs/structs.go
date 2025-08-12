@@ -12,6 +12,11 @@ type User struct {
 	createdAt time.Time
 }
 
+func (u User) outputUserDetails() {
+	// don't need to de-reference for structs, sugar supplied by go
+	fmt.Println(u.firstName, u.lastName, u.birthDate)
+}
+
 func main() {
 
 	fn := getUserData("Please enter your first name: ")
@@ -26,14 +31,9 @@ func main() {
 	}
 
 	// ... do something awesome with that gathered data!
-	outputUserDetails(&appUser)
+	appUser.outputUserDetails()
 
 	fmt.Println(appUser.firstName, appUser.lastName, appUser.birthDate)
-}
-
-func outputUserDetails(user *User) {
-	// don't need to de-reference for structs, sugar supplied by go
-	fmt.Println(user.firstName, user.lastName, user.birthDate)
 }
 
 func getUserData(promptText string) string {
