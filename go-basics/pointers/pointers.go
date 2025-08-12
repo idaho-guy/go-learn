@@ -4,7 +4,9 @@ import "fmt"
 
 func main() {
 	age := 32 // regular variable
-	fmt.Println("Age:", age)
+
+	agePointer := &age               // address of age, 0xc000090020
+	fmt.Println("Age:", *agePointer) // * to de-reference pointer, display 32
 	adultYears := getAdultYears((age))
 	fmt.Println(adultYears)
 }
