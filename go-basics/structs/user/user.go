@@ -8,30 +8,30 @@ import (
 
 func NewUser(firstName, lastName, birthDate string) (*User, error) {
 	if firstName == "" || lastName == "" || birthDate == "" {
-		return nil, errors.New("firstName, lastName, and birthdate are required")
+		return nil, errors.New("firstName, lastName, and birthDate are required")
 	}
 	return &User{
-		FirstName: firstName,
-		LastName:  lastName,
-		BirthDate: birthDate,
-		CreatedAt: time.Now(),
+		firstName: firstName,
+		lastName:  lastName,
+		birthDate: birthDate,
+		createdAt: time.Now(),
 	}, nil
 }
 
 type User struct {
-	FirstName string
-	LastName  string
-	BirthDate string
-	CreatedAt time.Time
+	firstName string
+	lastName  string
+	birthDate string
+	createdAt time.Time
 }
 
 func (u User) OutputUserDetails() {
 	// don't need to de-reference for structs, sugar supplied by go
-	fmt.Println(u.FirstName, u.LastName, u.BirthDate)
+	fmt.Println(u.firstName, u.lastName, u.birthDate)
 }
 
 func (u *User) ClearUserName() {
 	// don't need to de-reference for structs, sugar supplied by go
-	u.FirstName = ""
-	u.LastName = ""
+	u.firstName = ""
+	u.lastName = ""
 }
