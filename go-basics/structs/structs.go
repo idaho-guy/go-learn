@@ -19,7 +19,7 @@ func main() {
 	}
 
 	adminUser := user.NewAdmin("x@gmail.com", "pass")
-	adminUser.User.OutputUserDetails()
+	adminUser.OutputUserDetails()
 
 	// ... do something awesome with that gathered data!
 	appUser.OutputUserDetails()
