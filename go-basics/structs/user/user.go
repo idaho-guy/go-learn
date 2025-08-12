@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func NewUser(firstName, lastName, birthDate string) (*User, error) {
+func New(firstName, lastName, birthDate string) (*User, error) {
 	if firstName == "" || lastName == "" || birthDate == "" {
 		return nil, errors.New("firstName, lastName, and birthDate are required")
 	}
