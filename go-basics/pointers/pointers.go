@@ -7,9 +7,9 @@ func main() {
 
 	agePointer := &age               // address of age, 0xc000090020
 	fmt.Println("Age:", *agePointer) // * to de-reference pointer, display 32
-	adultYears := getAdultYears((age))
+	adultYears := getAdultYears(agePointer)
 	fmt.Println(adultYears)
 }
-func getAdultYears(age int) int {
-	return age - 18
+func getAdultYears(age *int) int { // copy of age will not be sent to function
+	return *age - 18
 }
