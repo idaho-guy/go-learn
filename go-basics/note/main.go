@@ -37,6 +37,10 @@ func saveData(data saver) error {
 	return nil
 }
 
+func printSomething(value interface{}) { // any value allowed
+	fmt.Println(value)
+}
+
 func main() {
 	title, content := getNoteData()
 
@@ -46,12 +50,13 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+
 	userNote, err := note.New(title, content)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-
+	printSomething(userNote)
 	err = outputData(userNote)
 	if err != nil {
 		fmt.Println("Saving the note failed")
