@@ -53,7 +53,12 @@ func printSomething(value interface{}) { // any value allowed
 	}
 }
 
+func add[T int | float64 | string](a, b T) T {
+	return a + b
+}
+
 func main() {
+	fmt.Println(add(1, 2))
 	title, content := getNoteData()
 
 	todoText := getUserInput("Todo text: ")
