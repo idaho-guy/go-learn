@@ -10,6 +10,20 @@ import (
 	"example.com/note/todo"
 )
 
+type saver interface { // if interface has 1 method, name of interface should be method name plus 'er'
+	Save() error
+}
+
+func saveData(data saver) error {
+	err := data.Save()
+	if err != nil {
+		fmt.Println("Saving the note failed")
+		return err
+	}
+	fmt.Println("Saving the note succeeded")
+	return nil
+}
+
 func main() {
 	title, content := getNoteData()
 
@@ -26,13 +40,13 @@ func main() {
 	}
 	todo.Display()
 	userNote.Display()
-	err = userNote.Save()
+	err = saveData(userNote)
 	if err != nil {
 		fmt.Println("Saving the note failed")
 		return
 	}
 	fmt.Println("Saving the note succeeded")
-	err = todo.Save()
+	saveData(todo)
 	if err != nil {
 		fmt.Println("Saving the todo failed")
 		return
