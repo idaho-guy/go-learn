@@ -22,7 +22,7 @@ func (todo Todo) Save() error {
 }
 
 func (todo Todo) Display() {
-	fmt.Printf(todo.Text)
+	fmt.Printf("todo text is: %v", todo.Text)
 }
 
 func New(content string) (Todo, error) {
