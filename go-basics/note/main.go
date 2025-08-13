@@ -43,8 +43,14 @@ func printSomething(value interface{}) { // any value allowed
 		fmt.Println("Float: ", value)
 	case int:
 		fmt.Println("Integer: ", value)
+	case outputtable:
+		typedValue, ok := value.(outputtable)
+		if ok {
+			fmt.Println("outputtable")
+			typedValue.Display()
+		}
+
 	}
-	fmt.Println(value)
 }
 
 func main() {
@@ -62,7 +68,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	printSomething(1)
+	printSomething(userNote)
 	err = outputData(userNote)
 	if err != nil {
 		fmt.Println("Saving the note failed")
