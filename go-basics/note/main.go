@@ -38,6 +38,12 @@ func saveData(data saver) error {
 }
 
 func printSomething(value interface{}) { // any value allowed
+	switch value.(type) {
+	case float64:
+		fmt.Println("Float: ", value)
+	case int:
+		fmt.Println("Integer: ", value)
+	}
 	fmt.Println(value)
 }
 
@@ -56,7 +62,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	printSomething(userNote)
+	printSomething(1)
 	err = outputData(userNote)
 	if err != nil {
 		fmt.Println("Saving the note failed")
