@@ -12,5 +12,6 @@ func main() {
 	fmt.Println(productNames)
 	//featuredPrices := prices[1:3] // 9.9 20
 	var featuredPrices = prices[:3] // 10 9.9 20
-	fmt.Println(featuredPrices)
+	featuredPrices[0] = 13.45
+	fmt.Println(prices) // 13.45 9.9 20 12.3, slice is ref to actual array so changing changes the original array
 }
