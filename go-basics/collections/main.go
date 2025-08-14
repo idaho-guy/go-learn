@@ -21,5 +21,17 @@ func main() {
 	courseRatings["go"] = 4.6
 	courseRatings["react"] = 4.7
 
+	for index, value := range userNames {
+		fmt.Printf("Index: %v; Value: %v\n", index, value)
+	}
+
+	for index, value := range courseRatings {
+		fmt.Printf("Index: %v; Value: %v\n", index, value)
+	}
+
+	for i := 1; i <= 5; i++ {
+		fmt.Println(i)
+	}
+
 	// courseRatings.output()
 }
