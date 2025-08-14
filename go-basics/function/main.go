@@ -6,7 +6,7 @@ type transformFn func(int) int
 
 func main() {
 	numbers := []int{1, 2, 3, 5}
-	doubled := transFormNumbers(&numbers, double)
+	doubled := transFormNumbers(&numbers, getTransformerFunction())
 	fmt.Println(doubled)
 	tripled := transFormNumbers(&numbers, triple)
 	fmt.Println(tripled)
@@ -19,6 +19,11 @@ func transFormNumbers(numbers *[]int, transform transformFn) []int {
 	}
 	return dNumbers
 }
+
+func getTransformerFunction() transformFn {
+	return double
+}
+
 func double(number int) int {
 	return number * 2
 }
