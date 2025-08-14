@@ -7,8 +7,12 @@ import (
 func main() {
 	prices := []float64{10.99, 8.99}
 	fmt.Println(prices[1])
-	prices = append(prices, 5.99) // returns new array with 3 elements
+	prices = append(prices, 5.99, 12.99, 29.99, 100.0) // returns new array with 6 elements
 	// remove element(s) by making new slices
+	fmt.Println(prices)
+
+	discountPrices := []float64{23.4, 65.3, 20.59}
+	prices = append(prices, discountPrices...)
 	fmt.Println(prices)
 }
 
