@@ -9,9 +9,8 @@ func main() {
 // factorial of 5 * 4 * 3, etc..
 
 func factorial(number int) int {
-	result := 1
-	for i := 1; i <= number; i++ {
-		result = result * i
+	if number == 0 {
+		return 1
 	}
-	return result
+	return number * factorial(number-1)
 }
