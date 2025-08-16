@@ -16,16 +16,6 @@ type Event struct {
 	UserID      int
 }
 
-/*
-CREATE TABLE IF NOT EXISTS events (
-	  id INTEGER PRIMARY KEY AUTOINCREMENT,
-	  name TEXT NOT NULL,
-	  description TEXT NOT NULL,
-	  location TEXT NOT NULL,
-	  dateTime DATETIME NOT NULL,
-	  user_id INTEGER
-	)*/
-
 func (e Event) Save() error {
 	// later add to DB
 	query := `insert into events (name, description, location, dateTime, user_id)
