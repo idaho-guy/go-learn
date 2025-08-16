@@ -2,6 +2,7 @@ package models
 
 import (
 	"example.com/rest-api/db"
+	"example.com/rest-api/models/utils"
 )
 
 type User struct {
@@ -16,7 +17,11 @@ func (u User) Save() error {
 	if err != nil {
 		return err
 	}
-	result, err := stmt.Exec(u.Email, u.Password)
+	pass, err := utils.HashPassword(u.Password)
+	if err != nil {
+		return err
+	}
+	result, err := stmt.Exec(u.Email, pass)
 	if err != nil {
 		return err
 	}
