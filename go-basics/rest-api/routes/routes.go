@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"example.com/rest-api/api-test/middewares"
+	"example.com/rest-api/middewares"
 	"github.com/gin-gonic/gin"
 )
 
